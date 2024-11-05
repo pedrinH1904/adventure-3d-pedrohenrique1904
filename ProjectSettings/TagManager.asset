@@ -8,6 +8,8 @@ TagManager:
   - Chave
   - Porta
   - Bau
+  - Escada
+  - Lava
   layers:
   - Default
   - TransparentFX

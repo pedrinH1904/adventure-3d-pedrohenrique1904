@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/sagu\xE3o.unity"
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Corredor.unity
+    guid: 2bb07c649d7d2cc488206ef97c129df8
+  - enabled: 1
+    path: Assets/Scenes/Quarto da bruxa.unity
+    guid: 35c04e373ff7b2747bd898e7c655a2d3
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 84f404e5432297346bc882f347da6501
   m_configObjects: {}

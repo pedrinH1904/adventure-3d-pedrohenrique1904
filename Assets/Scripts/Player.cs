@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float velocidade;
     [SerializeField] private bool temChave;
     [SerializeField] private bool pegando;
+    [SerializeField] private GameObject TelaDaMorte;
     [SerializeField] private bool podePegar;
     [SerializeField] private InventoryManager inventario;
     private Rigidbody rb;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         avisos = GetComponent<Avisos>();
+        TelaDaMorte.SetActive(false);
         //textoOuro = GameObject.FindGameObjectWithTag("Ouro").GetComponent<TextMeshProUGUI>();
         inventario = GameObject.FindObjectOfType<InventoryManager>();
     }
@@ -145,12 +148,25 @@ public class Player : MonoBehaviour
             estaPulando = false;
             animator.SetBool("EstaNoChao", true);
         }
+
+        if(collision.gameObject.CompareTag("Escada"))
+        {
+            SceneManager.LoadScene("Corredor");
+        }
+        if(collision.gameObject.CompareTag("Lava"))
+        {
+            TelaDaMorte.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         podePegar = true;
         avisos.MostrarAviso("Pressione E");
+        if(other.gameObject.CompareTag("Lava"))
+        {
+            TelaDaMorte.SetActive(true);
+        }
     }
 
     private void OnTriggerStay(Collider other)
