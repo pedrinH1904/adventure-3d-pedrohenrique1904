@@ -18,11 +18,16 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject TelaDaMorte;
     [SerializeField] private bool podePegar;
     [SerializeField] private InventoryManager inventario;
+    [SerializeField] private AudioClip moeda;
     private Rigidbody rb;
+    public AudioSource audio;
+    public AudioClip porta;
     private bool estaPulando;
     private Vector3 angleRotation;
     private Avisos avisos;
+    private int pontos;
     private TextMeshProUGUI textoOuro;
+    
     private List<string> listaAvisos = new List<string>();
 
 
@@ -153,21 +158,39 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Corredor");
         }
+
+        if(collision.gameObject.CompareTag("Porta"))
+        {
+            SceneManager.LoadScene("saguão");
+        }
+        
+        if(collision.gameObject.CompareTag("Escada1"))
+        {
+            SceneManager.LoadScene("cadeia");
+        }
+         if(collision.gameObject.CompareTag("final"))
+        {
+            SceneManager.LoadScene("Creditos");
+        }
         if(collision.gameObject.CompareTag("Lava"))
         {
             TelaDaMorte.SetActive(true);
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         podePegar = true;
         avisos.MostrarAviso("Pressione E");
-        if(other.gameObject.CompareTag("Lava"))
-        {
-            TelaDaMorte.SetActive(true);
-        }
+        
     }
+
+    public int ContagemPontos()
+    {
+        return pontos;
+    }
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -245,7 +268,7 @@ public class Player : MonoBehaviour
     }
 
 
-    
+
 }
 
 

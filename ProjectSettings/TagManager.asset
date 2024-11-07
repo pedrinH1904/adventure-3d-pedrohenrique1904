@@ -10,6 +10,8 @@ TagManager:
   - Bau
   - Escada
   - Lava
+  - Escada1
+  - final
   layers:
   - Default
   - TransparentFX

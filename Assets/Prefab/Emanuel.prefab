@@ -64,7 +64,8 @@ PrefabInstance:
       value: Emanuel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -7232241048097875652, guid: c223f4a31d3159c4880b572118f15800, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c223f4a31d3159c4880b572118f15800,
@@ -175,5 +176,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 211484570142715262}
   estaVivo: 0
+  ouro: 0
+  vida: 0
   forcaPulo: 0
   velocidade: 0
+  temChave: 0
+  pegando: 0
+  TelaDaMorte: {fileID: 0}
+  podePegar: 0
+  inventario: {fileID: 0}
+  moeda: {fileID: 0}
